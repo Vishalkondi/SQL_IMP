@@ -1,0 +1,161 @@
+1. What is SQL and what is it used for?
+SQL (Structured Query Language) is a standard language used for interacting with relational databases. It is used to create, read, update, and delete data in databases, as well as manage database structures.
+
+2. Difference between SQL and NoSQL databases:
+SQL Databases: Relational, use structured schemas (tables), support ACID transactions.
+Examples: MySQL, PostgreSQL.
+NoSQL Databases: Non-relational, support flexible schemas (e.g., JSON), scalable for unstructured data.
+Examples: MongoDB, Cassandra.
+3. Different types of SQL commands:
+DDL (Data Definition Language): CREATE, ALTER, DROP
+DML (Data Manipulation Language): SELECT, INSERT, UPDATE, DELETE
+DCL (Data Control Language): GRANT, REVOKE
+TCL (Transaction Control Language): COMMIT, ROLLBACK, SAVEPOINT
+DQL (Data Query Language): SELECT
+4. Purpose of the SELECT statement:
+Retrieves data from one or more tables.
+Example:
+
+sql
+Copy code
+SELECT name, age FROM users WHERE age > 18;
+5. Difference between WHERE and HAVING clauses:
+WHERE: Filters rows before aggregation.
+HAVING: Filters rows after aggregation.
+Example:
+sql
+Copy code
+SELECT department, COUNT(*) 
+FROM employees 
+WHERE age > 30 
+GROUP BY department 
+HAVING COUNT(*) > 5;
+6. Define JOIN and its types:
+A JOIN combines rows from two or more tables based on related columns.
+Types:
+
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL OUTER JOIN
+CROSS JOIN
+SELF JOIN
+7. What is normalization and why is it important?
+Normalization organizes data to reduce redundancy and improve integrity. It eliminates duplicate data and ensures relationships are logical.
+
+8. Primary key vs. Foreign key:
+Primary Key: Uniquely identifies a row in a table.
+Foreign Key: Establishes a relationship between two tables, referencing a primary key.
+9. What is a composite key in SQL?
+A primary key that consists of two or more columns.
+
+10. What are indexes in SQL and how do they improve performance?
+Indexes are data structures that improve the speed of data retrieval at the cost of additional storage.
+Example:
+
+sql
+Copy code
+CREATE INDEX idx_name ON users(name);
+11. How can you optimize a slow-running query?
+Use indexes.
+Optimize joins.
+Use EXPLAIN to analyze queries.
+Avoid SELECT *.
+12. Clustered vs. Non-clustered indexes:
+Clustered Index: Sorts data rows; one per table.
+Non-clustered Index: Points to data rows; multiple allowed.
+13. Stored procedure vs. Function:
+Stored Procedure: Performs actions (e.g., DML).
+Function: Returns a value, can be used in queries.
+14. UNION vs. UNION ALL:
+UNION: Removes duplicates.
+UNION ALL: Includes duplicates.
+15. What is a window function?
+Performs calculations over a set of rows related to the current row.
+Example:
+
+sql
+Copy code
+SELECT name, RANK() OVER (ORDER BY salary DESC) AS rank FROM employees;
+16. Retrieve unique values:
+sql
+Copy code
+SELECT DISTINCT column_name FROM table_name;
+17. Purpose of GROUP BY clause:
+Groups rows sharing a property for aggregate functions like SUM, COUNT.
+
+18. Handle NULL values:
+Use functions like IS NULL, COALESCE, or IFNULL.
+
+19. What is a self-join?
+A table joined to itself.
+Example:
+
+sql
+Copy code
+SELECT A.name, B.name 
+FROM employees A, employees B 
+WHERE A.manager_id = B.id;
+20. Left Join vs. Right Join:
+Left Join: All rows from the left table, matched rows from the right.
+Right Join: All rows from the right table, matched rows from the left.
+21. Full Outer Join:
+Combines all rows from both tables, including unmatched rows.
+
+22. Transactions in SQL:
+A set of operations performed as a single unit. Ensures ACID properties.
+
+23. Purpose of locking:
+Prevents concurrent updates to the same data, ensuring consistency.
+
+24. Error handling in SQL:
+Use TRY...CATCH blocks (in some DBMS) or error codes.
+
+25. What is a database schema?
+The structure defining tables, views, indexes, etc.
+
+26. Database replication:
+Copies data across databases for backup or performance.
+
+27. Sharding vs. Partitioning:
+Sharding: Distributes data across databases.
+Partitioning: Divides data within a single database.
+28. What is a data warehouse?
+A system optimized for querying and analysis, storing historical data.
+
+29. Fact table vs. Dimension table:
+Fact Table: Stores numeric performance data.
+Dimension Table: Stores descriptive attributes.
+30. What is a dashboard?
+A visualization of database queries for insights.
+
+31. Database normalization:
+Reduces redundancy, organizes relationships.
+
+32. 1NF vs. 2NF:
+1NF: Removes duplicate columns.
+2NF: Ensures every non-key attribute is fully dependent on the primary key.
+33. Denormalization:
+Combines tables for faster queries; used in read-heavy systems.
+
+34. Cloud database vs. On-premises:
+Cloud: Hosted by providers, scalable.
+On-premises: Self-managed, fixed resources.
+35. DBaaS:
+Database as a Service offers managed database solutions, reducing admin effort.
+
+36. Big Data in SQL:
+Handles large-scale data via distributed systems.
+
+37. Surrogate key:
+A synthetic key, typically auto-incremented.
+
+38. Metadata in SQL:
+Describes database objects (e.g., column types).
+
+39. OLTP vs. OLAP:
+OLTP: Transaction processing.
+OLAP: Analytical processing.
+40. Graph database:
+Stores data as nodes and edges for complex relationships.
+Example: Neo4
